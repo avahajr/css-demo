@@ -1,0 +1,24 @@
+@import 'tailwindcss' prefix(tw);
+
+@utility outlined-col {
+    @apply
+    tw:border-2
+    tw:border-solid
+    tw:justify-center
+    tw:font-medium;
+    background-color: color-mix(in srgb, var(--bg-color, currentColor) 22%, transparent);
+    border-color: color-mix(in srgb, var(--bg-color, currentColor) 22%, transparent);
+}
+@utility outlined-col-center {
+    @apply
+    tw:outlined-col
+    tw:flex
+    tw:items-center
+}
+
+@utility outlined-row {
+    @apply
+    tw:border-dashed
+    tw:border-black/50
+    tw:border-2
+}
