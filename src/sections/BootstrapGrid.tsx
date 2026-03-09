@@ -1,4 +1,5 @@
-import {useState, useEffect, ReactNode} from 'react';
+import {useEffect, useState} from 'react';
+import {Example} from "./Example";
 
 function useBreakpoint() {
     const getBreakpoint = () => {
@@ -23,16 +24,6 @@ function useBreakpoint() {
     }, []);
 
     return {...bp, width};
-}
-
-function Example({children, caption}: { children: React.ReactNode;  caption?: React.ReactNode }) {
-    return (
-        <>
-            <div className={`container mt-1 ${caption ? 'mb-1' : 'mb-4'}`}>
-                {children}
-            </div>
-            {caption && <p className={'text-muted mt-2 mb-4'}>{caption}</p>}</>
-    );
 }
 
 export default function BootstrapGrid() {
