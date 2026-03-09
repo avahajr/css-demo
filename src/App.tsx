@@ -1,22 +1,32 @@
-import {useState} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import BootstrapLayouts from "./sections/BootstrapGrid.tsx";
-import BootstrapUtils from "./sections/BootstrapUtils.tsx";
-import NonBootstrapLayouts from "./sections/Flex.tsx";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from './sections/Navbar.tsx';
+import BootstrapGrid from './sections/BootstrapGrid.tsx';
+import BootstrapUtils from './sections/BootstrapUtils.tsx';
+import Flex from './sections/Flex.tsx';
+import Grid from './sections/Grid.tsx';
+
+function BootstrapPage() {
+    return (
+        <>
+            <BootstrapGrid />
+            <BootstrapUtils />
+        </>
+    );
+}
 
 function App() {
-
-    return (<div className="tw:flex tw:flex-col tw:gap-4">
-            <h1 className={'container mt-4'}>
-                CSS Demo
-            </h1>
-            <BootstrapLayouts/>
-            <NonBootstrapLayouts/>
-            <BootstrapUtils/>
+    return (
+        <div className="tw:flex tw:flex-col tw:gap-4">
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Navigate to="/bootstrap" replace />} />
+                <Route path="/bootstrap" element={<BootstrapPage />} />
+                <Route path="/flex" element={<Flex />} />
+                <Route path="/grid" element={<Grid />} />
+            </Routes>
         </div>
-    )
+    );
 }
 
 export default App
