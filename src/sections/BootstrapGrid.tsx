@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 function useBreakpoint() {
     const getBreakpoint = () => {
         const w = window.innerWidth;
-        if (w >= 1200) return { name: 'xl', min: 1200, label: 'Extra Large' };
-        if (w >= 992) return { name: 'lg', min: 992, label: 'Large' };
-        if (w >= 768) return { name: 'md', min: 768, label: 'Medium' };
-        if (w >= 576) return { name: 'sm', min: 576, label: 'Small' };
-        return { name: 'xs', min: 0, label: 'Extra Small' };
+        if (w >= 1200) return {name: 'xl', min: 1200, label: 'Extra Large'};
+        if (w >= 992) return {name: 'lg', min: 992, label: 'Large'};
+        if (w >= 768) return {name: 'md', min: 768, label: 'Medium'};
+        if (w >= 576) return {name: 'sm', min: 576, label: 'Small'};
+        return {name: 'xs', min: 0, label: 'Extra Small'};
     };
 
     const [bp, setBp] = useState(getBreakpoint);
@@ -22,7 +22,7 @@ function useBreakpoint() {
         return () => window.removeEventListener('resize', onResize);
     }, []);
 
-    return { ...bp, width };
+    return {...bp, width};
 }
 
 export default function BootstrapGrid() {
@@ -30,13 +30,24 @@ export default function BootstrapGrid() {
 
     return (
         <section id="bootstrap-grid" className="container mt-5">
-            <h2>Bootstrap Grid</h2>
-            <div className={'tw:flex tw:gap-2 tw:mb-3'}>
-                <div className='tw:outlined-row tw:size-6'></div>
-                <span>= row</span>
+            <div className={'tw:flex tw:justify-between tw:items-center tw:w-full'}><h2>Bootstrap Grid</h2>
+                <div className={'tw:flex tw:gap-2 tw:mb-3'}>
+                    <div className='tw:outlined-row tw:size-6'></div>
+                    <span>= row</span>
+                </div>
             </div>
+
             <div className={'container'}>
-                <div className={'mb-5'}>
+                <p className={'text-muted'}>Each row can be split horizontally into <strong>12 equal parts</strong>.
+                    Each column takes up some number of these 12 parts.</p>
+                <div className={'mb-5 mt-1'}>
+                    <div className={'row tw:outlined-row'}>
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => <div
+                            className={'col-1 tw:outlined-col tw:text-gray-700/80 text-center'} key={n}>col-1 <div
+                            className={'tw:text-xs tw:text-gray-700/40'}>#{n}</div></div>)}
+                    </div>
+                </div>
+                <div className={'mb-5 mt-1'}>
                     <h4>Sizing columns</h4>
                     <div className={'row tw:outlined-row'}>
                         <div className={'col tw:text-red-700/80 tw:outlined-col'}>col</div>
@@ -84,17 +95,19 @@ export default function BootstrapGrid() {
                         </div>
                     </div>
                     <div className={'row mb-3 mt-2'}>
-                        <div className={'col text-muted'}>Nesting grids lets you line columns up anywhere in the row</div>
+                        <div className={'col text-muted'}>Nesting grids lets you line columns up anywhere in the row. But over-nested grids are difficult to read.
+                        </div>
                     </div>
                 </div>
             </div>
             <h4 className={'mt-4'}>Responsiveness</h4>
             <div className={'container'}>
                 <div className={'row'}>
-                    <div className={'col text-muted'}>Sizes (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>) attached to a column indicate that the column will be the specified width on that screen size and wider. For narrower screens, the column will automatically stack (i.e., become full-width).</div>
+                    <div className={'col text-muted'}>Sizes
+                        (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>) attached to a column
+                        indicate that the column will be the specified width on that screen size and wider.
+                    </div>
                 </div>
-
-                {/* Live breakpoint indicator */}
                 <div className={'row mt-4'}>
                     <div className={'col'}>
                         <div className={'tw:rounded-lg tw:border tw:border-gray-300 tw:p-4 tw:bg-gray-50'}>
@@ -102,13 +115,13 @@ export default function BootstrapGrid() {
                                 <span className={'tw:font-semibold tw:text-lg'}>Current breakpoint</span>
                                 <span className={'tw:font-mono tw:text-sm tw:text-gray-500'}>{bp.width}px</span>
                             </div>
-                            <div className={'tw:flex tw:gap-2'}>
+                            <div className={'tw:flex tw:flex-col tw:sm:flex-row tw:gap-2'}>
                                 {[
-                                    { name: 'xs', min: 0, max: 575, color: 'tw:bg-red-500' },
-                                    { name: 'sm', min: 576, max: 767, color: 'tw:bg-orange-500' },
-                                    { name: 'md', min: 768, max: 991, color: 'tw:bg-yellow-500' },
-                                    { name: 'lg', min: 992, max: 1199, color: 'tw:bg-green-500' },
-                                    { name: 'xl', min: 1200, max: Infinity, color: 'tw:bg-blue-500' },
+                                    {name: 'xs', min: 0, max: 575, color: 'tw:bg-red-500'},
+                                    {name: 'sm', min: 576, max: 767, color: 'tw:bg-orange-500'},
+                                    {name: 'md', min: 768, max: 991, color: 'tw:bg-yellow-500'},
+                                    {name: 'lg', min: 992, max: 1199, color: 'tw:bg-green-500'},
+                                    {name: 'xl', min: 1200, max: Infinity, color: 'tw:bg-blue-500'},
                                 ].map((b) => (
                                     <div
                                         key={b.name}
@@ -126,9 +139,11 @@ export default function BootstrapGrid() {
                                 ))}
                             </div>
                             <p className={'tw:pt-5 tw:mb-0 tw:text-center tw:text-gray-600'}>
-                                Window is <strong>{bp.label} ({bp.name})</strong> — window width: <code>{bp.width}px</code>
+                                Window is <strong>{bp.label} ({bp.name})</strong> — window
+                                width: <code>{bp.width}px</code>
                             </p>
-                            <p className={'tw:text-center tw:text-xs tw:text-gray-400 tw:mt-1 tw:mb-0'}> Resize your browser to see this change</p>
+                            <p className={'tw:text-center tw:text-xs tw:text-gray-400 tw:mt-1 tw:mb-0'}>Try resizing
+                                your browser!</p>
                         </div>
                     </div>
                 </div>
@@ -136,45 +151,26 @@ export default function BootstrapGrid() {
                 <div className={'row mt-4 mb-3'}>
                     <div className={'col'}>
                         <h5>Responsive columns in action</h5>
-                        <p className={'text-muted'}>These columns use <code>col-sm-6 col-md-4 col-lg-3</code> — they rearrange as you resize.</p>
+                        <p className={'text-muted'}>These columns rearrange as you resize. For narrower screens (in this
+                            case, <code>xs</code>), the column will automatically stack and become full-width.</p>
                     </div>
                 </div>
                 <div className={'row tw:outlined-row'}>
                     {[1, 2, 3, 4].map((n) => (
-                        <div key={n} className={'col-sm-6 col-md-4 col-lg-3 tw:outlined-col tw:text-purple-700/80'}>
-                            col-sm-6 col-md-4 col-lg-3 <span className={'tw:text-gray-400'}>#{n}</span>
+                        <div key={n} className={'col-sm-6 col-md-4 col-lg-3 tw:outlined-col tw:text-blue-700/80'}>
+                            col-sm-6 col-md-4 col-lg-3
                         </div>
                     ))}
                 </div>
-                <div className={'row mb-3 mt-2'}>
-                    <div className={'col text-muted tw:text-sm'}>
-                        <strong>What happens at each breakpoint:</strong><br />
-                        <code>xs</code> (&lt;576px): all columns stack full-width<br />
-                        <code>sm</code> (≥576px): 2 per row (each col-sm-6 = 50%)<br />
-                        <code>md</code> (≥768px): 3 per row (each col-md-4 = 33.3%)<br />
-                        <code>lg</code> (≥992px): 4 per row (each col-lg-3 = 25%)
-                    </div>
+                <div className={'row mt-4 mt-2'}>
+                    <ul className={'col text-muted tw:text-sm tw:list-disc tw:ml-5'}>
+                        <li><code>xs</code> (&lt;576px): all columns stack full-width<br/></li>
+                        <li><code>sm</code> (≥576px): 2 per row <br/></li>
+                        <li><code>md</code> (≥768px): 3 per row <br/></li>
+                        <li><code>lg</code> (≥992px): 4 per row</li>
+                    </ul>
                 </div>
 
-                {/* Another responsive example */}
-                <div className={'row mt-3 mb-3'}>
-                    <div className={'col'}>
-                        <h5>Mixing responsive sizes</h5>
-                    </div>
-                </div>
-                <div className={'row tw:outlined-row'}>
-                    <div className={'col-12 col-md-8 tw:outlined-col tw:text-red-700/80'}>
-                        col-12 col-md-8
-                    </div>
-                    <div className={'col-6 col-md-4 tw:outlined-col tw:text-blue-700/80'}>
-                        col-6 col-md-4
-                    </div>
-                </div>
-                <div className={'row mb-3 mt-2'}>
-                    <div className={'col text-muted tw:text-sm'}>
-                        The first column is full-width on xs, then 8/12 on md+. The second is half-width on xs, then 4/12 on md+.
-                    </div>
-                </div>
             </div>
         </section>
     );

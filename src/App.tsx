@@ -2,9 +2,9 @@ import {useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import BootstrapGrid from "./sections/BootstrapGrid.tsx";
+import BootstrapLayouts from "./sections/BootstrapGrid.tsx";
 import BootstrapUtils from "./sections/BootstrapUtils.tsx";
-import Flex from "./sections/Flex.tsx";
+import NonBootstrapLayouts from "./sections/Flex.tsx";
 
 function App() {
 
@@ -12,9 +12,9 @@ function App() {
             <h1 className={'container mt-4'}>
                 CSS Demo
             </h1>
-            <BootstrapGrid/>
+            <BootstrapLayouts/>
+            <NonBootstrapLayouts/>
             <BootstrapUtils/>
-            <Flex/>
         </div>
     )
 }
