@@ -6,11 +6,12 @@ export default function Navbar() {
             <div className="container">
                 <NavLink className="navbar-brand" to="/">CSS Demo</NavLink>
                 <ul className="navbar-nav ml-auto">
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="/bootstrap">Bootstrap</NavLink>
-                    </li>
+
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/flex">Flexbox</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink className="nav-link" to="/bootstrap">Bootstrap</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/grid">Grid</NavLink>

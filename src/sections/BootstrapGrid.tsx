@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, ReactNode} from 'react';
 
 function useBreakpoint() {
     const getBreakpoint = () => {
@@ -25,6 +25,16 @@ function useBreakpoint() {
     return {...bp, width};
 }
 
+function Example({children, caption}: { children: React.ReactNode;  caption?: React.ReactNode }) {
+    return (
+        <>
+            <div className={`container mt-1 ${caption ? 'mb-1' : 'mb-4'}`}>
+                {children}
+            </div>
+            {caption && <p className={'text-muted mt-2 mb-4'}>{caption}</p>}</>
+    );
+}
+
 export default function BootstrapGrid() {
     const bp = useBreakpoint();
 
@@ -36,70 +46,58 @@ export default function BootstrapGrid() {
                     <span>= row</span>
                 </div>
             </div>
-
-            <div className={'container'}>
-                <p className={'text-muted'}>Each row can be split horizontally into <strong>12 equal parts</strong>.
-                    Each column takes up some number of these 12 parts.</p>
-                <div className={'mb-5 mt-1'}>
-                    <div className={'row tw:outlined-row'}>
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => <div
-                            className={'col-1 tw:outlined-col tw:text-gray-700/80 text-center'} key={n}>col-1 <div
-                            className={'tw:text-xs tw:text-gray-700/40'}>#{n}</div></div>)}
-                    </div>
+            <p className={'text-muted'}>Each row can be split horizontally into <strong>12 equal parts</strong>.
+                Each column takes up some number of these 12 parts.</p>
+            <Example>
+                <div className={'row tw:outlined-row'}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => <div
+                        className={'col-1 tw:outlined-col tw:text-gray-700/80 text-center'} key={n}>col-1 <div
+                        className={'tw:text-xs tw:text-gray-700/40'}>#{n}</div></div>)}
                 </div>
-                <div className={'mb-5 mt-1'}>
-                    <h4>Sizing columns</h4>
-                    <div className={'row tw:outlined-row'}>
-                        <div className={'col tw:text-red-700/80 tw:outlined-col'}>col</div>
-                        <div className={'col tw:text-blue-700/80 tw:outlined-col'}>col</div>
-                        <div className={'col tw:text-green-700/80 tw:outlined-col'}>col</div>
-                    </div>
-                    <div className={'row mb-3 mt-2'}>
-                        <div className={'col text-muted'}>Omit the column size to make all the columns equal size.</div>
-                    </div>
-                    <div className={'row tw:outlined-row'}>
-                        <div className={'col-4 tw:text-red-700/80 tw:outlined-col'}>col-4</div>
-                        <div className={'col-4 tw:text-blue-700/80 tw:outlined-col'}>col-4</div>
-                        <div className={'col-4 tw:text-green-700/80 tw:outlined-col'}>col-4</div>
-                    </div>
-                    <div className={'row mb-3 mt-2'}>
-                        <div className={'col text-muted'}>...or, be explicit about it</div>
-                    </div>
-
-                    <div className={'row tw:outlined-row'}>
-                        <div className={'col-2 tw:text-red-700/80 tw:outlined-col'}>col-2</div>
-                        <div className={'col-2 tw:text-blue-700/80 tw:outlined-col'}>col-2</div>
-                        <div className={'col-2 tw:text-green-700/80 tw:outlined-col'}>col-2</div>
-                        <div className={'col-6 tw:text-purple-700/80 tw:outlined-col'}>col-6</div>
-                    </div>
+            </Example>
+            <h4>Sizing columns</h4>
+            <Example caption={'Omit the column size to make all the columns equal size.'}>
+                <div className={'row tw:outlined-row'}>
+                    <div className={'col tw:text-red-700/80 tw:outlined-col'}>col</div>
+                    <div className={'col tw:text-blue-700/80 tw:outlined-col'}>col</div>
+                    <div className={'col tw:text-green-700/80 tw:outlined-col'}>col</div>
                 </div>
-            </div>
-            <div className={'mb-5'}>
-                <h4>Nesting</h4>
-                <div className={'container'}>
-                    <div className={'row tw:outlined-row'}>
-                        <div className={'col-8 tw:text-red-700/80 tw:outlined-col'}>
-                            col-8
-                            <div className={'row tw:outlined-row'}>
-                                <div className={'col tw:text-blue-700/80 tw:outlined-col'}>col</div>
-                                <div className={'col tw:text-green-700/80 tw:outlined-col'}>col</div>
-                            </div>
-                        </div>
-                        <div className={'col-4 tw:text-purple-700/80 tw:outlined-col'}>col-4
-                            <div className={'row tw:outlined-row'}>
-                                <div className={'col-3 tw:text-red-700/80 tw:outlined-col'}>col-3</div>
-                                <div className={'col-3 tw:text-blue-700/80 tw:outlined-col'}>col-3</div>
-                                <div className={'col tw:text-green-700/80 tw:outlined-col'}>col</div>
-                                <div className={'col-4 tw:text-yellow-700/80 tw:outlined-col'}>col-4</div>
-                            </div>
+            </Example>
+            <Example caption={'...or, be explicit about it'}>
+                <div className={'row tw:outlined-row'}>
+                    <div className={'col-4 tw:text-red-700/80 tw:outlined-col'}>col-4</div>
+                    <div className={'col-4 tw:text-blue-700/80 tw:outlined-col'}>col-4</div>
+                    <div className={'col-4 tw:text-green-700/80 tw:outlined-col'}>col-4</div>
+                </div>
+            </Example>
+            <Example caption={'Columns don\u2019t have to be equal. They just need to add up to 12 (or fewer).'}>
+                <div className={'row tw:outlined-row'}>
+                    <div className={'col-2 tw:text-red-700/80 tw:outlined-col'}>col-2</div>
+                    <div className={'col-2 tw:text-blue-700/80 tw:outlined-col'}>col-2</div>
+                    <div className={'col-2 tw:text-green-700/80 tw:outlined-col'}>col-2</div>
+                    <div className={'col-6 tw:text-purple-700/80 tw:outlined-col'}>col-6</div>
+                </div>
+            </Example>
+            <h4>Nesting</h4>
+            <Example caption={'Nesting grids lets you line columns up anywhere in the row. But over-nested grids are difficult to read.'}>
+                <div className={'row tw:outlined-row'}>
+                    <div className={'col-8 tw:text-red-700/80 tw:outlined-col'}>
+                        col-8
+                        <div className={'row tw:outlined-row'}>
+                            <div className={'col tw:text-blue-700/80 tw:outlined-col'}>col</div>
+                            <div className={'col tw:text-green-700/80 tw:outlined-col'}>col</div>
                         </div>
                     </div>
-                    <div className={'row mb-3 mt-2'}>
-                        <div className={'col text-muted'}>Nesting grids lets you line columns up anywhere in the row. But over-nested grids are difficult to read.
+                    <div className={'col-4 tw:text-purple-700/80 tw:outlined-col'}>col-4
+                        <div className={'row tw:outlined-row'}>
+                            <div className={'col-3 tw:text-red-700/80 tw:outlined-col'}>col-3</div>
+                            <div className={'col-3 tw:text-blue-700/80 tw:outlined-col'}>col-3</div>
+                            <div className={'col tw:text-green-700/80 tw:outlined-col'}>col</div>
+                            <div className={'col-4 tw:text-yellow-700/80 tw:outlined-col'}>col-4</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Example>
             <h4 className={'mt-4'}>Responsiveness</h4>
             <div className={'container'}>
                 <div className={'row'}>
@@ -147,14 +145,9 @@ export default function BootstrapGrid() {
                         </div>
                     </div>
                 </div>
-
-                <div className={'row mt-4 mb-3'}>
-                    <div className={'col'}>
-                        <h5>Responsive columns in action</h5>
-                        <p className={'text-muted'}>These columns rearrange as you resize. For narrower screens (in this
-                            case, <code>xs</code>), the column will automatically stack and become full-width.</p>
-                    </div>
-                </div>
+            </div>
+            <h5 className={'my-4'}>Responsive columns in action</h5>
+            <Example caption={"For narrower screens (in this case, xs) the column will automatically stack and become full-width."}>
                 <div className={'row tw:outlined-row'}>
                     {[1, 2, 3, 4].map((n) => (
                         <div key={n} className={'col-sm-6 col-md-4 col-lg-3 tw:outlined-col tw:text-blue-700/80'}>
@@ -162,16 +155,14 @@ export default function BootstrapGrid() {
                         </div>
                     ))}
                 </div>
-                <div className={'row mt-4 mt-2'}>
-                    <ul className={'col text-muted tw:text-sm tw:list-disc tw:ml-5'}>
-                        <li><code>xs</code> (&lt;576px): all columns stack full-width<br/></li>
-                        <li><code>sm</code> (≥576px): 2 per row <br/></li>
-                        <li><code>md</code> (≥768px): 3 per row <br/></li>
-                        <li><code>lg</code> (≥992px): 4 per row</li>
-                    </ul>
-                </div>
+                <ul className={'text-muted tw:text-sm tw:list-disc ml-4 mt-3'}>
+                    <li><code>xs</code> (&lt;576px): all columns stack full-width<br/></li>
+                    <li><code>sm</code> (≥576px): 2 per row <br/></li>
+                    <li><code>md</code> (≥768px): 3 per row <br/></li>
+                    <li><code>lg</code> (≥992px): 4 per row</li>
+                </ul>
+            </Example>
 
-            </div>
         </section>
     );
 }
