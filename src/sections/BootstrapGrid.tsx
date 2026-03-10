@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import Example from "./Example";
+import Example from "../components/Example.tsx";
 
 function useBreakpoint() {
     const getBreakpoint = () => {

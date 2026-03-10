@@ -1,6 +1,6 @@
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './sections/Navbar.tsx';
+import Navbar from './components/Navbar.tsx';
 import BootstrapGrid from './sections/BootstrapGrid.tsx';
 import BootstrapUtils from './sections/BootstrapUtils.tsx';
 import Flex from './sections/Flex.tsx';

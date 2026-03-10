@@ -23,7 +23,7 @@
     tw:border-2
 }
 @utility flex-c {
-    @apply tw:border-2 tw:border-dashed tw:bg-green-100/50 tw:border-green-500/50 tw:p-2;
+    @apply tw:border-2 tw:border-dashed tw:bg-green-100/50 tw:border-green-500/50 tw:p-px;
 }
 
 @utility flex-i {
