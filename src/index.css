@@ -22,3 +22,11 @@
     tw:border-black/50
     tw:border-2
 }
+
+p code {
+    @apply tw:mx-1.5;
+}
+
+p {
+    @apply tw:text-black/90;
+}

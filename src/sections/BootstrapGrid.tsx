@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Example} from "./Example";
+import Example from "./Example";
 
 function useBreakpoint() {
     const getBreakpoint = () => {
@@ -37,7 +37,7 @@ export default function BootstrapGrid() {
                     <span>= row</span>
                 </div>
             </div>
-            <p className={'text-muted'}>Each row can be split horizontally into <strong>12 equal parts</strong>.
+            <p className={''}>Each row can be split horizontally into <strong>12 equal parts</strong>.
                 Each column takes up some number of these 12 parts.</p>
             <Example>
                 <div className={'row tw:outlined-row'}>
@@ -92,7 +92,7 @@ export default function BootstrapGrid() {
             <h4 className={'mt-4'}>Responsiveness</h4>
             <div className={'container'}>
                 <div className={'row'}>
-                    <div className={'col text-muted'}>Sizes
+                    <div className={'col '}>Sizes
                         (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>) attached to a column
                         indicate that the column will be the specified width on that screen size and wider.
                     </div>
@@ -146,7 +146,7 @@ export default function BootstrapGrid() {
                         </div>
                     ))}
                 </div>
-                <ul className={'text-muted tw:text-sm tw:list-disc ml-4 mt-3'}>
+                <ul className={' tw:text-sm tw:list-disc ml-4 mt-3'}>
                     <li><code>xs</code> (&lt;576px): all columns stack full-width<br/></li>
                     <li><code>sm</code> (≥576px): 2 per row <br/></li>
                     <li><code>md</code> (≥768px): 3 per row <br/></li>
