@@ -1,5 +1,5 @@
 # Ava's CSS Demo
-> [!warning] Trigger warning
+> [!WARN] Trigger warning
 > This is a React application.
 ## Following along
 Clone the repo and install dependencies:
