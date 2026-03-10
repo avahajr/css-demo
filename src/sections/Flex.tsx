@@ -3,7 +3,7 @@ export default function Flex() {
     return (
         <section id="flex" className="container mt-5">
             <h2>Flexbox</h2>
-            <p className="text-muted">Bootstrap versions 4.6 and newer are <strong>built on top of flexbox</strong>.</p>
+            <p>Bootstrap versions 4.6 and newer are <strong>built on top of flexbox</strong>.</p>
             <h3>Block vs. Inline</h3>
             <Example caption={'HTML elements are either block  (they stack in vertical "blocks").'}>
                 <div className={'tw:outlined-col tw:text-red-700/80 pl-4'}>{"<div>"}</div>
@@ -17,8 +17,8 @@ export default function Flex() {
                 <span className={'tw:outlined-col tw:text-blue-700/80 px-3'}>{"<span>"}</span>
                 <span className={'tw:outlined-col tw:text-purple-700/80 px-3'}>{"<span>"}</span>
             </Example>
-            <p className={'text-muted'}>What this really means is that their <code>display</code> property is automatically set to either <code>block</code> or <code>inline</code>.</p>
-            <p className={'text-muted'}>Note that <strong>inline elements can't contain block elements</strong>.</p>
+            <p >What this really means is that their <code>display</code> property is automatically set to either <code>block</code> or <code>inline</code>.</p>
+            <p >Note that <strong>inline elements can't contain block elements</strong>.</p>
             <div className={'container mb-4'}>
                 <details>
                     <summary className={'tw:cursor-pointer tw:mb-2 text-muted'}>Common block &amp; inline elements</summary>
@@ -44,11 +44,18 @@ export default function Flex() {
                 </details>
             </div>
 
-            <h3>Flexbox</h3>
-            <p className={'text-muted'}>In CSS, setting the  <code className={'tw:px-2'}> display</code> property to <code>flex</code> makes an HTML element a <strong>flex
-                container</strong>. </p>
-            <div className={'container mb-4'}>
+            <div className={'d-flex justify-content-between'}>
+                <h3>Flexbox</h3>
+                <div className={'tw:flex tw:gap-2 tw:mb-3'}>
+                    <div className='tw:flex-c tw:size-6'></div>
+                    <span>= flex container</span>
+                </div>
             </div>
+            <p>In CSS, setting the  <code> display</code> property to <code>flex</code> makes an HTML element a <strong>flex
+                container</strong>. That element's children become <strong>flex items</strong>.</p>
+            <div className={'d-flex tw:flex-c'}><div className={'tw:flex-i'}>Flex item</div></div>
+            <h4 className={'mt-4'}>Main and Cross Axes</h4>
+            <p>... There's a lot to cover here. Other people have done it better. See <a href={'https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/'}>this tutorial</a>.</p>
         </section>
     );
 }

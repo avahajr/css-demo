@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/css-demo/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/css-demo/' : '/',
   plugins: [react(), tailwindcss()],
-})
+}))

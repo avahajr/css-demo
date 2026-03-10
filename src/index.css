@@ -22,11 +22,18 @@
     tw:border-black/50
     tw:border-2
 }
+@utility flex-c {
+    @apply tw:border-2 tw:border-dashed tw:bg-green-100/50 tw:border-green-500/50 tw:p-2;
+}
+
+@utility flex-i {
+    @apply tw:border-2 tw:bg-blue-100/50 tw:border-blue-500/50 tw:p-2 tw:text-blue-500/70 tw:font-medium;
+}
 
 p code {
     @apply tw:mx-1.5;
 }
 
 p {
-    @apply tw:text-black/90;
+    @apply tw:text-black/50;
 }
