@@ -1,5 +1,5 @@
 import Example from '../components/Example.tsx';
-import {HorizontalExample1, HorizontalExample2} from "../demos/FlexExamples.tsx";
+import {HorizontalExample1, HorizontalExample2, VerticalExample1, VerticalExample2} from "../demos/FlexExamples.tsx";
 
 export default function Flex() {
     return (
@@ -7,7 +7,7 @@ export default function Flex() {
             <h2>Flexbox</h2>
             <p>Bootstrap versions 4.6 and newer are <strong>built on top of flexbox</strong>.</p>
             <h3>Block vs. Inline</h3>
-            <Example caption={'HTML elements are either block  (they stack in vertical "blocks").'}>
+            <Example caption={'HTML elements are either block  (they stack in vertical "blocks")...'}>
                 <div className={'tw:outlined-col tw:text-red-700/80 pl-4'}>{"<div>"}</div>
                 <div className={'tw:outlined-col tw:text-yellow-700/80 pl-4'}>{"<div>"}</div>
                 <div className={'tw:outlined-col tw:text-blue-700/80 pl-4'}>{"<div>"}</div>
@@ -86,7 +86,7 @@ export default function Flex() {
             <p>In CSS, setting the <code> display</code> property to <code>flex</code> makes an HTML element a <strong>flex
                 container</strong>. That element's children become <strong>flex items</strong>.</p>
             <div className={'d-flex tw:flex-c'}>
-                <div className={'tw:flex-i'}>Flex item</div>
+                {[1,2,3,4].map((i) => <div key={i} className={'tw:flex-i'}>Flex item</div>)}
             </div>
             <h4 className={'mt-4'}>Shirking Responsibility</h4>
             <p>See <a href={'https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/#flex-direction-2'}
@@ -95,6 +95,8 @@ export default function Flex() {
             {/* Flex container */}
             <HorizontalExample1/>
             <HorizontalExample2/>
+            <VerticalExample1/>
+            <VerticalExample2/>
         </section>
     );
 }
