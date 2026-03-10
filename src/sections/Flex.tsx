@@ -92,7 +92,6 @@ export default function Flex() {
             <p>See <a href={'https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/#flex-direction-2'}
                       target={'_blank'} rel={'noreferrer'}>this tutorial</a>.</p>
             <h4>Live demos</h4>
-            {/* Flex container */}
             <HorizontalExample1/>
             <HorizontalExample2/>
             <VerticalExample1/>
