@@ -1,6 +1,6 @@
 # Ava's CSS Demo
-> [!WARN] Trigger warning
-> This is a React application.
+> [!WARNING]
+> TW: this is a React application.
 ## Following along
 Clone the repo and install dependencies:
 ```bash
