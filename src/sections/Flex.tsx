@@ -1,5 +1,11 @@
 import Example from '../components/Example.tsx';
-import {HorizontalExample1, HorizontalExample2, VerticalExample1, VerticalExample2} from "../demos/FlexExamples.tsx";
+import {
+    HorizontalExample1,
+    HorizontalExample2,
+    SizingExample1, SizingExample2,
+    VerticalExample1,
+    VerticalExample2
+} from "../demos/FlexExamples.tsx";
 
 export default function Flex() {
     return (
@@ -96,6 +102,8 @@ export default function Flex() {
             <HorizontalExample2/>
             <VerticalExample1/>
             <VerticalExample2/>
+            <SizingExample1/>
+            <SizingExample2/>
         </section>
     );
 }

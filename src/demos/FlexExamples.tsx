@@ -17,11 +17,12 @@ export function HorizontalExample1() {
 export function HorizontalExample2() {
     return <ExampleWithHeader header={'Horizontal Alignment #2'} problemStatement={'Move only the second flex item to the right edge.'}>
         <div className={"d-flex tw:flex-c"}>
-            <div className={"tw:flex-i"}>Flex item</div>
+            <div className={"tw:flex-i "}>Flex item</div>
             <div className={"tw:flex-i"}>Flex item</div>
         </div>
     </ExampleWithHeader>;
 }
+
 export function VerticalExample1() {
     return <ExampleWithHeader header={'Vertical Alignment #1'} problemStatement={'Center the flex items vertically.'}>
         <div className={'d-flex tw:flex-c tw:min-h-32'}>
@@ -36,6 +37,23 @@ export function VerticalExample2() {
         <div className={'d-flex tw:flex-c tw:min-h-32'}>
             <div className={'tw:flex-i tw:h-fit'}>Flex item</div>
             <div className={'tw:flex-i tw:h-fit'}>Flex item</div>
+        </div>
+    </ExampleWithHeader>
+}
+
+export function SizingExample1() {
+    return <ExampleWithHeader header={'Item Sizing #1'} problemStatement={'Make the the flex item take up half of its container.'}>
+        <div className={'d-flex tw:flex-c'}>
+            <div className={"tw:flex-i"}>Flex item</div>
+            <div className={"tw:flex-i"}>Flex item</div>
+        </div>
+    </ExampleWithHeader>
+}
+export function SizingExample2() {
+    return <ExampleWithHeader header={'Item Sizing #2'} problemStatement={'Fill the entire container, but make the first item two times the wider than the second.'}>
+        <div className={'d-flex tw:flex-c'}>
+            <div className={"tw:flex-i"}>Flex item</div>
+            <div className={"tw:flex-i"}>Flex item</div>
         </div>
     </ExampleWithHeader>
 }
