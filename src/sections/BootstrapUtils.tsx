@@ -22,6 +22,12 @@ export default function BootstrapUtils() {
                 <div className={'col-5 tw:text-green-700/80 tw:outlined-col'}>col-5</div>
             </div>
         </Example>
+        <Example caption={<>a row with <code>flex-row-reverse</code> applied.</>}>
+            <div className={'row tw:outlined-row flex-row-reverse'}>
+                <div className={'col-5 tw:text-blue-700/80 tw:outlined-col'}>col-5</div>
+                <div className={'col-5 tw:text-green-700/80 tw:outlined-col'}>col-5</div>
+            </div>
+        </Example>
         </section>);
 }
 
