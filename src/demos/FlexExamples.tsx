@@ -45,7 +45,6 @@ export function SizingExample1() {
     return <ExampleWithHeader header={'Item Sizing #1'} problemStatement={'Make the the flex item take up half of its container.'}>
         <div className={'d-flex tw:flex-c'}>
             <div className={"tw:flex-i"}>Flex item</div>
-            <div className={"tw:flex-i"}>Flex item</div>
         </div>
     </ExampleWithHeader>
 }
